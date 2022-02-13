@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Git-Practice/News-App/News-App/app/src/main/res/drawable-v24/share_icon.xml" value="0.1865" />
+        <entry key="..\:/Git-Practice/News-App/News-App/app/src/main/res/drawable/background_round_padded.xml" value="0.2075" />
+        <entry key="..\:/Git-Practice/News-App/News-App/app/src/main/res/drawable/menu_drawable_color_state.xml" value="0.2075" />
+        <entry key="..\:/Git-Practice/News-App/News-App/app/src/main/res/drawable/round_top_background.xml" value="0.2075" />
+        <entry key="..\:/Git-Practice/News-App/News-App/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
+        <entry key="..\:/Git-Practice/News-App/News-App/app/src/main/res/layout/activity_new_category.xml" value="0.259375" />
+        <entry key="..\:/Git-Practice/News-App/News-App/app/src/main/res/layout/activity_news_category.xml" value="0.259375" />
+        <entry key="..\:/Git-Practice/News-App/News-App/app/src/main/res/layout/nav_header.xml" value="0.259375" />
+        <entry key="..\:/Git-Practice/News-App/News-App/app/src/main/res/layout/news_card.xml" value="0.22826086956521738" />
+        <entry key="..\:/Git-Practice/News-App/News-App/app/src/main/res/menu/main_menu.xml" value="0.259375" />
+        <entry key="..\:/Git-Practice/News-App/News-App/app/src/main/res/menu/overflow_menu.xml" value="0.178125" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

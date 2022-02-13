@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">News App</string>
+    <string name="top_headlines">Top Headlines</string>
+    <string name="category">Category</string>
+    <string name="sports">Sports</string>
+    <string name="entertainment">Entertainment</string>
+    <string name="business">Business</string>
+    <string name="technology">Technology</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="learn_more">Learn More</string>
+    <string name="about_me">About me</string>
+</resources>
