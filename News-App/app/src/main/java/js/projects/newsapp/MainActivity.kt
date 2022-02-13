@@ -93,14 +93,14 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.learn_more ->{
                 val builder = CustomTabsIntent.Builder()
-                val url = ""
+                val url = "https://github.com/J-Srinivasalu/News-App"
                 val customTabsIntent = builder.build()
                 customTabsIntent.launchUrl(this, Uri.parse(url))
                 true
             }
             R.id.about_me ->{
                 val builder = CustomTabsIntent.Builder()
-                val url = ""
+                val url = "https://github.com/J-Srinivasalu"
                 val customTabsIntent = builder.build()
                 customTabsIntent.launchUrl(this, Uri.parse(url))
                 true
