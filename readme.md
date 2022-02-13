@@ -16,13 +16,13 @@
 ## Screenshots
 <hr>
 <p align="center">
-<img src = "Screenshots/image1.jpg" width=216> &nbsp;
-<img src = "Screenshots/image2.jpg" width=216>&nbsp;
-<img src = "Screenshots/image3.jpg" width=216>
+<img src = "Screenshots/image1.jpeg" width=216> &nbsp;
+<img src = "Screenshots/image2.jpeg" width=216>&nbsp;
+<img src = "Screenshots/image3.jpeg" width=216>
 	</p>
 	<p  align="center">
-<img src = "Screenshots/image4.jpg" width=216>&nbsp;
-<img src = "Screenshots/image5.jpg" width=216></p>
+<img src = "Screenshots/image4.jpeg" width=216>&nbsp;
+<img src = "Screenshots/image5.jpeg" width=216></p>
 
 ## Connect with Me
 <p align="center">
