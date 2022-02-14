@@ -67,6 +67,14 @@ class NewsAdapter(private val context: Context): RecyclerView.Adapter<NewsAdapte
         return items.size
     }
 
+    // Clean all elements of the recycler
+    @SuppressLint("NotifyDataSetChanged")
+    fun clear() {
+        items.clear()
+        notifyDataSetChanged()
+    }
+
+    // Add a list of items
     @SuppressLint("NotifyDataSetChanged")
     fun updateNews(updatedItems: ArrayList<News>){
         items.clear()

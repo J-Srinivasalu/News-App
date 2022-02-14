@@ -9,7 +9,6 @@ import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.core.view.GravityCompat
-import androidx.drawerlayout.widget.DrawerLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.android.volley.toolbox.JsonObjectRequest
 import js.projects.newsapp.databinding.ActivityMainBinding
@@ -17,7 +16,6 @@ import js.projects.newsapp.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var mAdapter:NewsAdapter
-    private lateinit var drawer:DrawerLayout
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -29,36 +27,43 @@ class MainActivity : AppCompatActivity() {
 
         binding.navigationView.setCheckedItem(R.id.nav_top)
 
+        var category = ""
+
         binding.navigationView.setNavigationItemSelectedListener{
             when (it.itemId) {
                 R.id.nav_top -> {
-                    fetchData("")
+                    category = ""
+                    fetchData(category)
                     supportActionBar?.title = getString(R.string.top_headlines)
-                    drawer.closeDrawer(GravityCompat.START)
+                    binding.drawerLayout.closeDrawer(GravityCompat.START)
                     true
                 }
                 R.id.sports -> {
-                    fetchData("&category=sports")
+                    category = "&category=sports"
+                    fetchData(category)
                     supportActionBar?.title = getString(R.string.sports)
-                    drawer.closeDrawer(GravityCompat.START)
+                    binding.drawerLayout.closeDrawer(GravityCompat.START)
                     true
                 }
                 R.id.business ->{
-                    fetchData("&category=business")
+                    category = "&category=business"
+                    fetchData(category)
                     supportActionBar?.title = getString(R.string.business)
-                    drawer.closeDrawer(GravityCompat.START)
+                    binding.drawerLayout.closeDrawer(GravityCompat.START)
                     true
                 }
                 R.id.entertainment ->{
-                    fetchData("&category=entertainment")
+                    category = "&category=entertainment"
+                    fetchData(category)
                     supportActionBar?.title = getString(R.string.entertainment)
-                    drawer.closeDrawer(GravityCompat.START)
+                    binding.drawerLayout.closeDrawer(GravityCompat.START)
                     true
                 }
                 R.id.technology ->{
-                    fetchData("&category=technology")
+                    category = "&category=technology"
+                    fetchData(category)
                     supportActionBar?.title = getString(R.string.technology)
-                    drawer.closeDrawer(GravityCompat.START)
+                    binding.drawerLayout.closeDrawer(GravityCompat.START)
                     true
                 }
                 else ->{
@@ -67,19 +72,27 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        drawer = binding.drawerLayout
-        val drawerToggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
-        drawer.addDrawerListener(drawerToggle)
+        val drawerToggle = ActionBarDrawerToggle(this, binding.drawerLayout, R.string.open, R.string.close)
+        binding.drawerLayout.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
 
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
-        fetchData("")
         mAdapter = NewsAdapter(this)
         binding.recyclerView.adapter = mAdapter
+        fetchData(category)
+
+        binding.swipeRefresh.setOnRefreshListener {
+            fetchData(category)
+        }
+        binding.swipeRefresh.setColorSchemeResources(android.R.color.holo_blue_bright,
+            android.R.color.holo_green_light,
+            android.R.color.holo_orange_light,
+            android.R.color.holo_red_light)
 
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.overflow_menu,menu)
@@ -88,7 +101,7 @@ class MainActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             android.R.id.home -> {
-                drawer.openDrawer(GravityCompat.START)
+                binding.drawerLayout.openDrawer(GravityCompat.START)
                 true
             }
             R.id.learn_more ->{
@@ -109,13 +122,14 @@ class MainActivity : AppCompatActivity() {
         }
     }
     override fun onBackPressed() {
-        if (drawer.isDrawerOpen(GravityCompat.START)) {
-            drawer.closeDrawer(GravityCompat.START)
+        if (binding.drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            binding.drawerLayout.closeDrawer(GravityCompat.START)
         } else {
             super.onBackPressed()
         }
     }
     private fun fetchData(category: String){
+        mAdapter.clear()
         val url = "https://newsapi.org/v2/top-headlines?country=in$category&apiKey=2cace4ab017b477abccca3a813ee67bb"
         val jsonRequest = object: JsonObjectRequest(
             Method.GET, url, null,{
@@ -145,7 +159,7 @@ class MainActivity : AppCompatActivity() {
                 return headers
             }
         }
-
+        binding.swipeRefresh.isRefreshing = false
         // Add the request to the RequestQueue.
         MySingleton.getInstance(this).addToRequestQueue(jsonRequest)
     }

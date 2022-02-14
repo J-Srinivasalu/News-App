@@ -10,6 +10,7 @@
 		<li>Custom ChromeTabs</li>
 		<li>Glide</li>
 		<li>Volley</li>
+		<li>SwipeRefreshLayout</li>
 	</ul>
 </p>
 
